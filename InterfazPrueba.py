@@ -43,13 +43,13 @@ btn_h = 30 # Tamanio vertical boton
 
 # Funcion de seleccionar imagen
 def select_image():
-	# grab a reference to the image panels
+    # grab a reference to the image panels
     global panelA, panelB, image
 # kick off the GUI
-	# open a file chooser dialog and allow the user to select an input image
+    # open a file chooser dialog and allow the user to select an input image
     window.filename = filedialog.askopenfilename(initialdir = "/",title = "Select file",filetypes = (("jpeg files","*.jpg"),("png files","*.png"),("all files","*.*"))) # Abre el buscador de archivos
     path = window.filename
-# ensure a file path was selected
+    # ensure a file path was selected
     if len(path) > 0: # Verifica que se escoge un archivo y/o no se ha dado click en cancelar
         image = cv2.imread(path) # load the image from disk
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY) # Se convierte la imagen a escala de grises para hallar bordes
@@ -66,17 +66,17 @@ def select_image():
         
         # if the panels are None, initialize them
         if panelA is None or panelB is None:
-			# the first panel will store our original image
+            # the first panel will store our original image
             panelA = Label(image=image)
             panelA.image = image
             panelA.place(x=10, y=btn_posy, width=tam, height=tam)
-			# while the second panel will store the edge map
+            # while the second panel will store the edge map
             panelB = Label(image=edged)
             panelB.image = edged       
             panelB.place(x=620, y=btn_posy, width=tam, height=tam)
-		# otherwise, update the image panels
+            # otherwise, update the image panels
         else:
-			# update the pannels
+            # update the pannels
             panelA.configure(image=image)
             panelB.configure(image=edged)
             panelA.image = image
@@ -104,8 +104,8 @@ def select_bg():
     # grab a reference to the image panels
     global panelA, panelB, image
 # kick off the GUI
-	# open a file chooser dialog and allow the user to select an input
-	# image
+    # open a file chooser dialog and allow the user to select an input
+    # image
     window.filename = filedialog.askopenfilename(initialdir = "/",title = "Select file",filetypes = (("jpeg files","*.jpg"),("png files","*.png"),("all files","*.*"))) # Abre el buscador de archivos
     path = window.filename
 # ensure a file path was selected
@@ -126,17 +126,17 @@ def select_bg():
         
         # if the panels are None, initialize them
         if panelA is None or panelB is None:
-			# the first panel will store our original image
+            # the first panel will store our original image
             panelA = Label(image=image)
             panelA.image = image     
             panelA.place(x=10, y=btn_posy, width=tam, height=tam)
-			# while the second panel will store the edge map
+            # while the second panel will store the edge map
             panelB = Label(image=edged)
             panelB.image = edged   
             panelB.place(x=620, y=btn_posy, width=tam, height=tam)
-		# otherwise, update the image panels
+            # otherwise, update the image panels
         else:
-			# update the pannels
+            # update the pannels
             panelA.configure(image=image)
             panelB.configure(image=edged)
             panelA.image = image
