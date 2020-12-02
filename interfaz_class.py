@@ -128,6 +128,8 @@ class AppFrame(tk.Frame):
         self.askopenfilename()
         self.image_in = cv2.imread(self.filepath) # load the image from disk
         self.image_out = cv2.imread(self.filepath) # load the image from disk
+        self.image_in = cv2.resize(self.image_in,(self.tam,self.tam))
+        self.image_out = cv2.resize(self.image_out,(self.tam,self.tam))
         self.trans_show_images()
         # self.image_in = self.askopenfilename
         # self.image_out = self.askopenfilename
@@ -185,6 +187,8 @@ class AppFrame(tk.Frame):
         self.askopenfilename()
         self.image_in = cv2.imread(self.filepath) # load the image from disk
         self.image_out = cv2.imread(self.filepath) # load the image from disk
+        self.image_in = cv2.resize(self.image_in,(self.tam,self.tam))
+        self.image_out = cv2.resize(self.image_out,(self.tam,self.tam))
         self.trans_show_images()
         
     # Funcion para seleccionar o quitar pantalla completa
