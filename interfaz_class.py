@@ -49,8 +49,8 @@ class AppFrame(tk.Frame):
         
         # Posiciones y self.tamanios de los botones
         self.btn_posx = 1240 # Posicion x del boton
-        self.btn_posy = 130 # Posicion y del primer bloque de botones
-        self.btn_posy2 = 660 # Posicion y del segundo bloque de botones
+        self.btn_posy = 145 # Posicion y del primer bloque de botones
+        self.btn_posy2 = 675 # Posicion y del segundo bloque de botones
         self.btn_w = 110 # self.tamanio horizontal boton
         self.btn_h = 30 # self.tamanio vertical boton
         
@@ -71,17 +71,40 @@ class AppFrame(tk.Frame):
         lbl0.place(x=0, y=0, width=1370, height=820) # Posicion y self.tamanio texto
         lbl0.configure(bg=self.wn_bg,fg=self.wn_fg) # Colores texto
         
-        lbl1 = tk.Label(self, text="Procesamiento de imágenes", font=("Arial Bold", 40)) # Configuracion boton (ventana, texto, estilo y self.tamaño de letra)
-        lbl1.place(x=10, y=20, width=1220, height=60) # Posicion y self.tamanio texto
+        lbl1 = tk.Label(self, text="Proyecto final - Procesamiento de imágenes y visión", font=("Arial Bold", 35)) # Configuracion boton (ventana, texto, estilo y self.tamaño de letra)
+        lbl1.place(x=10, y=5, width=1340, height=60) # Posicion y self.tamanio texto
         lbl1.configure(bg=self.wn_bg,fg=self.wn_fg) # Colores texto
         
-        lbl2 = tk.Label(self, text="Acá iría la explicación del proyecto", font=("Arial Bold", 15)) # Configuracion boton (ventana, texto, estilo y self.tamaño de letra)
-        lbl2.place(x=10, y=80, width=1220, height=30) # Posicion y self.tamanio texto
+        text = "Este proyecto consiste en realizar la segmentación de una imagen y ubicarla sobre un fondo, dichas imagenes se seleccionan desde  el disco duro del computador. Para ello se hace uso de los botones" 
+        lbl2 = tk.Label(self, text=text, font=("Arial Bold", 10)) # Configuracion boton (ventana, texto, estilo y self.tamaño de letra)
+        lbl2.place(x=10, y=60, width=1340, height=20) # Posicion y self.tamanio texto
         lbl2.configure(bg=self.wn_bg,fg=self.wn_fg) # Colores texto
         
+        text = "de la derecha, con Rectangle se selecciona el área a segmentar, con Foreground y Background se marcan zonas a las que pertece respectivamente el primer plano o fondo. Finalmente, cada vez que se"
+        lbl2_1 = tk.Label(self, text=text, font=("Arial Bold", 10)) # Configuracion boton (ventana, texto, estilo y self.tamaño de letra)
+        lbl2_1.place(x=10, y=80, width=1340, height=20) # Posicion y self.tamanio texto
+        lbl2_1.configure(bg=self.wn_bg,fg=self.wn_fg) # Colores texto
+        
+        text = "desee, se pueden realizar iteraciones y observar el resultado en pantalla."
+        lbl2_2 = tk.Label(self, text=text, font=("Arial Bold", 10)) # Configuracion boton (ventana, texto, estilo y self.tamaño de letra)
+        lbl2_2.place(x=10, y=100, width=1340, height=20) # Posicion y self.tamanio texto
+        lbl2_2.configure(bg=self.wn_bg,fg=self.wn_fg) # Colores texto
+        
         lbl3 = tk.Label(self, text="Proyecto realizado por: Pablo Mosquera, Juan Sebastián Parrado y Andrea Ruiz", font=("Arial Bold", 10)) # Configuracion boton (ventana, texto, estilo y self.tamaño de letra)
-        lbl3.place(x=10, y=740, width=1220, height=30) # Posicion y self.tamanio texto
+        lbl3.place(x=10, y=740, width=1340, height=30) # Posicion y self.tamanio texto
         lbl3.configure(bg=self.wn_bg,fg=self.wn_fg) # Colores texto
+        
+        lbl4 = tk.Label(self, text="Imagen entrada", font=("Arial Bold", 15)) # Configuracion boton (ventana, texto, estilo y self.tamaño de letra)
+        lbl4.place(x=10, y=120, width=600, height=25) # Posicion y self.tamanio texto
+        lbl4.configure(bg=self.wn_bg,fg=self.wn_fg) # Colores texto
+        
+        lbl5 = tk.Label(self, text="Imagen salida", font=("Arial Bold", 15)) # Configuracion boton (ventana, texto, estilo y self.tamaño de letra)
+        lbl5.place(x=620, y=120, width=600, height=25) # Posicion y self.tamanio texto
+        lbl5.configure(bg=self.wn_bg,fg=self.wn_fg) # Colores texto
+        
+        lbl6 = tk.Label(self, text="Botones", font=("Arial Bold", 15)) # Configuracion boton (ventana, texto, estilo y self.tamaño de letra)
+        lbl6.place(x=self.btn_posx, y=120, width=self.btn_w, height=25) # Posicion y self.tamanio texto
+        lbl6.configure(bg=self.wn_bg,fg=self.wn_fg) # Colores texto
         
         """
         Botones en la ventana
@@ -90,29 +113,29 @@ class AppFrame(tk.Frame):
         btn1 = tk.Button(self, text="Select an image", bg=self.but_bg, fg=self.but_fg, command=self.select_image) # Configuracion del boton 1 (ventana, texto, colores de fondo y de letra, funcion)
         btn1.place(x=self.btn_posx, y=(self.btn_posy+(n*40)), width=self.btn_w, height=self.btn_h) # Posicion y self.tamanio boton 1
         
-        n = 1 # Hace referencia a la operacion de la posicion en y del boton 2
+        n = 2 # Hace referencia a la operacion de la posicion en y del boton 2
         btn2 = tk.Button(self, text="Rectangle", bg=self.but_bg, fg=self.but_fg, command=self.select_rectangle) # Configuracion del boton 2 (ventana, texto, colores de fondo y de letra, funcion)
         btn2.place(x=self.btn_posx, y=(self.btn_posy+(n*40)), width=self.btn_w, height=self.btn_h) # Posicion y self.tamanio boton 2
         
-        n = 2 # Hace referencia a la operacion de la posicion en y del boton 3
+        n = 3 # Hace referencia a la operacion de la posicion en y del boton 3
         btn3 = tk.Button(self, text="Background", bg=self.but_bg, fg=self.but_fg, command=self.select_background) # Configuracion del boton 3 (ventana, texto, colores de fondo y de letra, funcion)
         btn3.place(x=self.btn_posx, y=(self.btn_posy+(n*40)), width=self.btn_w, height=self.btn_h) # Posicion y self.tamanio boton 3
         
-        n = 3 # Hace referencia a la operacion de la posicion en y del boton 4
+        n = 4 # Hace referencia a la operacion de la posicion en y del boton 4
         btn4 = tk.Button(self, text="Foreground", bg=self.but_bg, fg=self.but_fg, command=self.select_foreground) # Configuracion del boton 4 (ventana, texto, colores de fondo y de letra, funcion)
         btn4.place(x=self.btn_posx, y=(self.btn_posy+(n*40)), width=self.btn_w, height=self.btn_h) # Posicion y self.tamanio boton 4
         
-        n = 4 # Hace referencia a la operacion de la posicion en y del boton 5
+        n = 5 # Hace referencia a la operacion de la posicion en y del boton 5
         btn5 = tk.Button(self, text="Iteration", bg=self.but_bg, fg=self.but_fg, command=self.select_iteration) # Configuracion del boton 5 (ventana, texto, colores de fondo y de letra, funcion)
         btn5.place(x=self.btn_posx, y=(self.btn_posy+(n*40)), width=self.btn_w, height=self.btn_h) # Posicion y self.tamanio boton 5
         
-        n = 5 # Hace referencia a la operacion de la posicion en y del boton 6
+        n = 1 # Hace referencia a la operacion de la posicion en y del boton 6
         btn6 = tk.Button(self, text="Select Background", bg=self.but_bg, fg=self.but_fg, command=self.select_bg) # Configuracion del boton 6 (ventana, texto, colores de fondo y de letra, funcion)
         btn6.place(x=self.btn_posx, y=(self.btn_posy+(n*40)), width=self.btn_w, height=self.btn_h) # Posicion y self.tamanio boton 6
         
-        # n = 0 # Hace referencia a la operacion de la posicion en y del boton 7
-        # btn7 = tk.Button(self, text="Fullscreen", bg=self.but_bg, fg=self.but_fg, command=self.select_fs) # Configuracion del boton 7 (ventana, texto, colores de fondo y de letra, funcion)
-        # btn7.place(x=self.btn_posx, y=(self.btn_posy2+(n*40)), width=self.btn_w, height=self.btn_h) # Posicion y self.tamanio boton 7
+        n = 0 # Hace referencia a la operacion de la posicion en y del boton 7
+        btn7 = tk.Button(self, text="Save images", bg=self.but_bg, fg=self.but_fg, command=self.select_save) # Configuracion del boton 7 (ventana, texto, colores de fondo y de letra, funcion)
+        btn7.place(x=self.btn_posx, y=(self.btn_posy2+(n*40)), width=self.btn_w, height=self.btn_h) # Posicion y self.tamanio boton 7
         
         n = 1  # Hace referencia a la operacion de la posicion en y del boton 8
         btn8 = tk.Button(self, text="Reset", bg=self.but_bg, fg=self.but_fg, command=self.select_reset) # Configuracion del boton 8 (ventana, texto, colores de fondo y de letra, funcion)
@@ -281,16 +304,21 @@ class AppFrame(tk.Frame):
             self.state = True # ... ponga pantalla completa
         self.attributes("-fullscreen", self.state) # Ajustar el estado de la pantalla
     
+    def select_save(self):
+        bar = np.zeros((self.image_in.shape[0], 5, 3), np.uint8)
+        res = np.hstack((self.image_in, bar, self.img_copy, bar, self.output, bar, self.image_out,bar, self.img_bg))
+        cv2.imwrite('output.png', res)
+        
     def iteration(self):
         cv2.grabCut(self.image_in, self.mask, None, self.BGD_model, self.FGD_model, 1, cv2.GC_INIT_WITH_MASK)
         self.mask_out = np.where((self.mask==1)|(self.mask==3), 1, 0).astype('uint8')
-        output = cv2.bitwise_and(self.image_in, self.image_in, mask=self.mask_out)
+        self.output = cv2.bitwise_and(self.image_in, self.image_in, mask=self.mask_out)
         # #cv2.imshow('image_mod',output)
         self.mask_bg = np.where((self.mask==1)|(self.mask==3), 0, 1).astype('uint8')
         # self.img_bg = cv2.imread('lena.jpg', 1)  
         # self.img_bg = cv2.resize(self.img_bg,(self.tam,self.tam))
         output_bg = cv2.bitwise_or(self.img_bg,self.img_bg, mask=self.mask_bg)
-        self.image_out = cv2.bitwise_or(output_bg,output)
+        self.image_out = cv2.bitwise_or(output_bg,self.output)
         # cv2.imshow('image_mod',output_bg)
         self.trans_show_images(self.img_copy,self.image_out)
          
